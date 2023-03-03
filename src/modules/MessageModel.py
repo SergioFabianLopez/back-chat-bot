@@ -85,10 +85,9 @@ class MessageModel():
         try:
             connection = get_connection()
             with connection.cursor() as cursor:
-                query = "delete from messages where id=%s"
-                vars = message.id
+                query = f'delete from messages where id={message.id}'
 
-                cursor.execute(query, vars)
+                cursor.execute(query)
                 affected_rows = cursor.rowcount
                 connection.commit()
 

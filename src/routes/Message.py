@@ -64,7 +64,7 @@ def update_message(id):
 @main.route('/delete/<id>', methods=['DELETE'])
 def delete_message(id):
     try:
-        message = Message(id)
+        message = Message(id=id)
         affected_rows = MessageModel.delete_message(message)
 
         if affected_rows == 1:
